@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Login Page</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="offset-md-2 col-md-8">
+				<div class="card">
+					<div class="card-header">
+						Login
+					</div>
+					<div class="card-body">
+						<form novalidate id="login-form">
+							<div class="form-group">
+								<input class="form-control" 
+									type="text" placeholder="Username" 
+									required name="username" minlength="3">
+								<div class="invalid-feedback"></div>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="password" placeholder="Password" required maxlength="10">
+								<div class="invalid-feedback">This field is required.</div>
+							</div>
+							<button class="btn btn-primary" type="submit">Login</button>
+							<button class="btn btn-primary" type="button">Register</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener("load", function() {
+				// Fetch all the forms we want to apply custom Bootstrap validation styles to
+				let form = document.querySelector("#login-form");
+				form.addEventListener("submit", function (event) {
+					if (form.checkValidity() === false) {
+						event.preventDefault();
+						event.stopPropagation();
+						const userNameValidity = form.username.validity;
+						let message = "";
+						if (userNameValidity.valueMissing) {
+							message = "Field is required.";
+						} else if (userNameValidity.tooShort) {
+							message = "Minimum field value is 2.";
+						}
+						form.username.nextSibling.nextSibling.innerHTML = message; 
+					}
+					form.classList.add('was-validated');
+				});
+			});
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+## Ignore list
+node_modules/*
+dist/*
+*.log
