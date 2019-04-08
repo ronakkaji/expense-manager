@@ -17,8 +17,8 @@
 					<div class="card-body">
 						<form novalidate id="login-form">
 							<div class="form-group">
-								<input class="form-control" 
-									type="text" placeholder="Username" 
+								<input class="form-control"
+									type="text" placeholder="Username"
 									required name="username" minlength="3">
 								<div class="invalid-feedback"></div>
 							</div>
@@ -51,7 +51,7 @@
 						} else if (userNameValidity.tooShort) {
 							message = "Minimum field value is 2.";
 						}
-						form.username.nextSibling.nextSibling.innerHTML = message; 
+						form.username.nextSibling.nextSibling.innerHTML = message;
 					}
 					form.classList.add('was-validated');
 				});
